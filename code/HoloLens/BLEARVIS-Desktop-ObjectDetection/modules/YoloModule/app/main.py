@@ -23,7 +23,8 @@ def main(
         output,
         min_time,
         holo_endpoint,
-        holo_url
+        holo_url,
+        yolo_version
         ):
 
     global videoCapture
@@ -42,7 +43,8 @@ def main(
                          output,
                          min_time,
                          holo_endpoint,
-                         holo_url
+                         holo_url,
+                         yolo_version
                          ) as videoCapture:
                          
             videoCapture.start()
@@ -75,7 +77,8 @@ def Run():
         cfg['RESULT_PATH'],
         cfg['MIN_TIME'],
         cfg['HOLO_ENDPOINT'],
-        cfg['HOLO_ENDPOINT_URL']
+        cfg['HOLO_ENDPOINT_URL'],
+        cfg['YOLO_VERSION']
         )
 
 if __name__ == '__main__':

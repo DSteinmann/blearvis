@@ -1,0 +1,38 @@
+name: blearvis-env
+channels:
+  - conda-forge
+  - pytorch
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - numpy
+  - scipy
+  - matplotlib
+  - pillow
+  - opencv
+  - pytorch
+  - torchvision
+  - torchaudio
+  - requests
+  - pyyaml
+  - tqdm
+  - pip:
+    - ultralytics==8.2.0
+    - onnxruntime
+    - tensorflow-macos  # For macOS ARM64
+    - absl-py
+    - easydict
+    - initgroups
+    - moviepy
+    - imageio
+    - imageio-ffmpeg
+    - ffmpeg-python
+    - filterpy
+    - scikit-learn
+    - seaborn
+    - pandas
+    - jupyter
+    - ipykernel
+    - ipython
+    - notebook

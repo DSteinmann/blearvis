@@ -139,6 +139,7 @@ dependencies:
     - torchvision==0.15.2+cu117
     - tqdm==4.65.0
     - typeguard==2.13.3
+    - ultralytics==8.2.0
     - urllib3==1.26.15
     - werkzeug==2.3.3
     - wrapt==1.14.1

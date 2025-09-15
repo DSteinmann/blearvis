@@ -1,4 +1,7 @@
 ---
+# YOLO version selection: 'v7' or 'v11'
+YOLO_VERSION: v11
+
 # if we want to use our own custom model
 CUSTOM: True
 CUSTOM_CLASSES:
@@ -12,7 +15,7 @@ USE_YOLO-TINY: False
 VIDEO_SOURCE: https://<DEVICE-PORTAL-USER>:<DEVICE-PORTAL-PWD>@<HOLOLENS-IP>/api/holographic/stream/live.mp4?holo=true&pv=true&mic=true&loopback=true&pv=true 
 
 # for testing it is maybe easier to use the webcam to detect some objects
-USE_WEBCAM: False
+USE_WEBCAM: True
 # if we want to do object recognition
 RUN_INFERENCE: True
 # the minimum confidence level to say it is a valid detection
@@ -27,4 +30,4 @@ RESULT_PATH: /Users/username/Videos
 HOLO_ENDPOINT: True
 # the endpoint of the Microsoft Hololens or any other endpoint, where the HL2's IP should be set instead of 0.0.0.0 
 # the port number should correspond to the one set in the Unity app in HTTPListener.cs
-HOLO_ENDPOINT_URL: http://0.0.0.0:5555 
+HOLO_ENDPOINT_URL: http://0.0.0.0:5555

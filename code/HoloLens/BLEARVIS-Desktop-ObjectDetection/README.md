@@ -14,7 +14,44 @@ The code is largely a combination of two repositories.
 ## Weights
 
 - Pre-trained weights for BLEARVIS: [./modules/YoloModule/app/detector/data/BLEARVIS_BestWeights_YOLOv7.onnx](https://github.com/Interactions-HSG/blearvis/tree/main/code/HoloLens/BLEARVIS-Desktop-ObjectDetection/modules/YoloModule/app/detector/data/BLEARVIS_BestWeights_YOLOv7.onnx) with the two robots (tractorbot and roboticarm).
-To download the weights, you need to use Git LFS (see [https://github.com/git-lfs/git-lfs/](https://github.com/git-lfs/git-lfs/)).
+
+### Git LFS Setup (Required for Model Files)
+
+The model files in this repository are tracked using Git LFS (Large File Storage) because they are large binary files. To properly download these files, you need to:
+
+#### 1. Install Git LFS
+```bash
+# macOS with Homebrew
+brew install git-lfs
+
+# Or download from: https://github.com/git-lfs/git-lfs/releases
+```
+
+#### 2. Initialize Git LFS
+```bash
+git lfs install
+```
+
+#### 3. Pull LFS files
+```bash
+git lfs pull
+```
+
+#### 4. Verify LFS files
+```bash
+git lfs ls-files
+```
+
+**Note**: If you don't have Git LFS installed, you'll only see pointer files (small text files) instead of the actual model files. The pointer file for `BLEARVIS_BestWeights_YOLOv7.onnx` should be ~146MB when properly downloaded.
+
+### Alternative: Download Models Manually
+
+If you prefer not to use Git LFS, you can download the models directly:
+
+1. Go to the [GitHub repository](https://github.com/Interactions-HSG/blearvis)
+2. Navigate to the model file location
+3. Click "Download" or use the raw file URL
+4. Place the downloaded file in the correct directory
 
 ## Geeting Started
 
@@ -26,7 +63,15 @@ To download the weights, you need to use Git LFS (see [https://github.com/git-lf
 
 `git clone https://github.com/Interactions-HSG/blearvis`
 
-Extract the folder _code/HoloLens/BLEARVIS-Desktop-Object-Detection_.
+Extract the folder _code/HoloLens/BLEARVIS-Desktop-ObjectDetection_.
+
+### [2.5] Set Working Directory
+
+All commands in this guide should be run from the repository root directory:
+
+```bash
+cd BLEARVIS-Desktop-ObjectDetection  # Repository root
+```
 
 ### [3] Setup YOLOv7
 - Train your YOLOv7 model (see: [https://github.com/WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)) and convert it to ONNX using the notebook [YOLOv7onnx.ipynb](https://colab.research.google.com/github/WongKinYiu/yolov7/blob/main/tools/YOLOv7onnx.ipynb)
@@ -60,6 +105,6 @@ Now you are all set and ready to run YOLOv7 object detection on the Microsoft Ho
 
 1. Start up the Hololens and log in. Make sure it is charged sufficiently as the PV camera has heavy battery usage.
 2. Activate the conda environment.
-3. `cd modules/YoloModule/app`
+3. Navigate to the app directory: `cd modules/YoloModule/app`
 4. `python main.py`
 5. To terminate the programm press CTRL-C.

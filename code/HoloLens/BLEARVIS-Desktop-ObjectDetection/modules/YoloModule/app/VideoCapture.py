@@ -36,7 +36,8 @@ class VideoCapture(object):
             result_path,
             min_time,
             holo_endpoint,
-            holo_url
+            holo_url,
+            yolo_version='v7'
             ):
 
         self.videoPath = videoPath
@@ -57,6 +58,7 @@ class VideoCapture(object):
         self.result_path = result_path
         self.recommendation_thresh = min_time
         self.holo_endpoint = holo_endpoint
+        self.yolo_version = yolo_version
 
         print("VideoCapture::__init__()")
         print("OpenCV Version : %s" % (cv2.__version__))
@@ -69,11 +71,10 @@ class VideoCapture(object):
         if self.custom:
             print("   - Custom Classes   : " + str(self.custom_classes))
         print("   - HololensEndpoint?: " + str(self.holo_endpoint))
-        if self.holo_endpoint:
-            print("   - HololensUrl      : " + str(holo_url))
+        print("   - YOLO Version     : " + str(self.yolo_version))
         print("")
 
-        self.yoloInference = Detector(tiny=self.tiny, custom=self.custom)  # yolov4
+        self.yoloInference = Detector(tiny=self.tiny, custom=self.custom, yolo_version=self.yolo_version)  # yolov4
 
         if self.custom:
             self.apiHandler = APIHandler(holo_url, self.custom_classes)

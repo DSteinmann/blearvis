@@ -1,0 +1,45 @@
+# BLEARVIS YOLO v11 Requirements (macOS ARM64)
+# Alternative to conda environment for pip users
+
+# Core dependencies
+numpy
+scipy
+matplotlib
+pillow
+opencv-python
+requests
+pyyaml
+tqdm
+
+# YOLO v11
+ultralytics==8.2.0
+
+# ONNX Runtime (for YOLO v7 compatibility)
+onnxruntime
+
+# TensorFlow (macOS optimized)
+tensorflow-macos
+
+# Additional utilities
+absl-py
+easydict
+initgroups
+moviepy
+imageio
+imageio-ffmpeg
+ffmpeg-python
+filterpy
+scikit-learn
+seaborn
+pandas
+
+# Jupyter (optional)
+jupyter
+ipykernel
+ipython
+notebook
+
+# PyTorch (if not using ultralytics built-in)
+torch
+torchvision
+torchaudio
