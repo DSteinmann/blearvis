@@ -10,7 +10,7 @@ import time
 from pathlib import Path
 
 class YOLOv11Detector:
-    def __init__(self, model_path=None, conf_threshold=0.7, iou_threshold=0.45, custom=False):
+    def __init__(self, model_path=None, conf_threshold=0.3, iou_threshold=0.45, custom=False):
         """
         Initialize YOLO v11 detector
 
@@ -27,10 +27,24 @@ class YOLOv11Detector:
         # Default model path if not provided
         if model_path is None:
             if custom:
-                model_path = "detector/data/BLEARVIS_BestWeights_YOLOv11.pt"
+                # Prefer ONNX for better performance, fall back to PyTorch
+                onnx_path = "detector/data/BLEARVIS_BestWeights_YOLOv11.onnx"
+                pt_path = "detector/data/BLEARVIS_BestWeights_YOLOv11.pt"
+
+                if Path(onnx_path).exists():
+                    model_path = onnx_path
+                    print("📁 Using ONNX model for better performance")
+                elif Path(pt_path).exists():
+                    model_path = pt_path
+                    print("📁 Using PyTorch model")
+                else:
+                    print("❌ No custom model found. Please train a model first.")
+                    print("   Run: python train_yolo11.py")
+                    print("   Then: python convert_to_onnx.py (optional)")
+                    raise FileNotFoundError(f"Neither {onnx_path} nor {pt_path} found")
             else:
                 # Use YOLO v11 models with correct naming (without 'v')
-                model_path = "yolo11n.pt"  # Default YOLO v11 nano model
+                model_path = "../yolo11n.pt"  # Default YOLO v11 nano model
 
         self.model_path = model_path
 

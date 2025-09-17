@@ -1,0 +1,11 @@
+# YOLOv11 data configuration for BLEARVIS custom dataset
+# Dataset for fine-tuning YOLOv11 on tractorbot and roboticarm classes
+
+path: ./detector/data/dataset  # dataset root dir
+train: train/  # train images (directory)
+val: val/  # val images (directory)
+
+# Classes
+names:
+  0: tractorbot
+  1: roboticarm
