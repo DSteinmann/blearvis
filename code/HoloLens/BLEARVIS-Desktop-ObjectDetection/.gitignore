@@ -86,7 +86,6 @@ dmypy.json
 *.h5
 *.hdf5
 *.pb
-*.onnx
 *.tflite
 *.mlmodel
 *.joblib
@@ -332,7 +331,6 @@ MANIFEST
 # -----------------
 # BLEARVIS specific
 **/BLEARVIS_BestWeights_*.pt
-**/BLEARVIS_BestWeights_*.onnx
 **/BLEARVIS_BestWeights_*.weights
 
 # HoloLens specific
